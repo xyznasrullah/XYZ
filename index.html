@@ -3,44 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nasrullah | Gamer Profile</title>
+    <title>Nasrullah | Personal Space</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <nav class="top-nav">
         <div class="logo">XYZ</div>
         <div class="nav-right">
-            <a href="#" class="login-btn">Login</a>
+            <button id="loginBtn" class="login-btn">Member Login</button>
         </div>
     </nav>
 
     <div class="container">
         <header>
+            <div class="profile-pic">
+                <img src="profile.jpg" alt="Profile Picture" onerror="this.src='https://via.placeholder.com/150/000814/00f2ff?text=Nasrullah'">
+            </div>
             <h1 class="glitch" data-text="NASRULLAH">NASRULLAH</h1>
-            <p class="tagline">Pro Player | Streamer | Content Creator</p>
+            <p class="tagline">Tech Enthusiast | Content Creator | Visionary</p>
         </header>
 
         <section class="profile-card">
             <div class="bio">
-                <h2>Welcome to My Realm</h2>
-                <p>Hello! I'm Nasrullah, a passionate gamer and tech enthusiast. This is my personal space where I showcase my gaming journey, stats, and achievements. I love exploring immersive worlds and mastering competitive gameplay. Let's connect and level up together!</p>
-            </div>
-
-            <div class="stats">
-                <div class="stat-box"><h3>Rank</h3><p>Elite</p></div>
-                <div class="stat-box"><h3>K/D</h3><p>4.5</p></div>
-                <div class="stat-box"><h3>Level</h3><p>75</p></div>
+                <h2>About Me</h2>
+                <p>Hello! I'm Nasrullah. Welcome to my private corner of the internet. I'm a creative mind fueled by technology and innovation. This website is a glimpse into my world, where I share my journey, thoughts, and everything in between. I believe in continuous growth and turning dreams into digital reality.</p>
             </div>
 
             <div class="social-links">
-                <a href="#" class="btn">Discord</a>
-                <a href="#" class="btn">YouTube</a>
-                <a href="#" class="btn">Twitch</a>
+                <a href="#" class="btn">Connect on Facebook</a>
+                <a href="#" class="btn">View My GitHub</a>
+                <a href="mailto:yourname@email.com" class="btn">Send an Email</a>
             </div>
         </section>
     </div>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 style="color: #00f2ff;">Security Login</h2>
+            <p id="errorMsg" style="display: none; color: #ff0055; font-size: 0.8rem; margin-bottom: 10px;">Access Denied: Invalid Credentials!</p>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button id="submitLogin" class="modal-login-btn">Authorize</button>
+        </div>
+    </div>
+
+    <script>
+        const loginBtn = document.getElementById('loginBtn');
+        const loginModal = document.getElementById('loginModal');
+        const closeBtn = document.querySelector('.close-btn');
+        const submitLogin = document.getElementById('submitLogin');
+        const errorMsg = document.getElementById('errorMsg');
+
+        loginBtn.onclick = () => loginModal.style.display = 'block';
+        closeBtn.onclick = () => { loginModal.style.display = 'none'; errorMsg.style.display = 'none'; }
+        window.onclick = (e) => { if(e.target == loginModal) loginModal.style.display = 'none'; }
+
+        submitLogin.onclick = () => {
+            errorMsg.style.display = 'block';
+            document.getElementById('username').value = '';
+            document.getElementById('password').value = '';
+        }
+    </script>
 
 </body>
 </html>
