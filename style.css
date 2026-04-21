@@ -5,280 +5,133 @@
     --accent: #00f2ff;
 }
 
-.light-theme {
-    --bg: #f0f2f5;
-    --card: #ffffff;
-    --text: #1c1e21;
-    --accent: #007bff;
-}
-
-* {
-    box-sizing: border-box;
+body {
     margin: 0;
     padding: 0;
-}
-
-body {
     background-color: var(--bg);
     color: var(--text);
     font-family: 'Poppins', sans-serif;
-    transition: 0.4s;
-    overflow-x: hidden;
-    /* ১. পিসি ও মোবাইলে সেন্টারিং নিশ্চিত করার জন্য */
+    /* ডেক্সটপে সবকিছু মাঝখানে রাখার জন্য নিচের ৩টি লাইন জরুরি */
     display: flex;
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
-/* ৩. Mode আর Login বাটন প্রফেশনাল করা */
+/* ওপরে স্থির বার (স্ক্রল করলে ওপরেই থাকবে) */
 .top-nav {
     width: 100%;
-    padding: 15px 25px;
+    padding: 12px 20px;
     background: var(--card);
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid var(--accent);
-    position: absolute;
+    position: absolute; 
     top: 0;
+    left: 0;
+    box-sizing: border-box;
     z-index: 1000;
-}#details-animation {
-    color: var(--text);
-    font-size: 1rem;
-    line-height: 1.8;
-    text-align: left; /* ডিটেইলস বাম দিক থেকে শুরু হলে বেশি প্রফেশনাল লাগে */
-    margin-top: 15px;
-    font-family: 'Poppins', sans-serif;
 }
 
-/* নামটা একটু বোল্ড বা আলাদা রঙের দেখানোর জন্য */
-.info-label {
-    color: var(--accent);
-    font-weight: bold;
-}
 .logo {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.5rem;
-    font-weight: bold;
+    font-size: 1.3rem;
     color: var(--accent);
-    text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
-    letter-spacing: 2px;
-    cursor: pointer;
-}
-.nav-right {
-    display: flex;
-    gap: 10px;
+    text-shadow: 0 0 10px var(--accent);
+    margin: 0;
 }
 
-.theme-btn, .login-btn {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 6px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 0.85rem;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.theme-btn:hover, .login-btn:hover {
-    background: var(--accent);
-    color: #000;
-}
-
-/* ২. স্কিল বার ও পিকচার সেন্টারিং ফিক্স */
+/* কন্টেইনার - এটিই কম্পিউটার ও মোবাইলে সেন্টারিং ঠিক রাখে */
 .container {
-
-    width: 90%;
-
-    max-width: 500px;
-
-    text-align: center;
-
-    margin-top: 100px;
-
-    padding: 20px;
-
     display: flex;
-
     flex-direction: column;
-
     align-items: center;
-
+    text-align: center;
+    width: 90%;
+    max-width: 650px; /* ডেস্কটপে খুব বেশি ছড়াবে না */
+    margin-top: 80px; /* লোগো বারের নিচে সামান্য গ্যাপ */
+    margin-bottom: 50px;
+    padding: 20px;
+    box-sizing: border-box;
 }
-
-
 
 .profile-pic {
-
     width: 140px;
-
     height: 140px;
-
-    margin-bottom: 15px;
-
     border-radius: 50%;
-
     border: 3px solid var(--accent);
-
     overflow: hidden;
-
-    box-shadow: 0 0 15px var(--accent);
-
+    box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+    margin-bottom: 15px;
 }
-
-
 
 .profile-pic img {
-
     width: 100%;
-
     height: 100%;
-
     object-fit: cover;
-
 }
 
+h1.glitch {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    margin: 10px 0;
+}
 
-
+/* প্রোফাইল কার্ড ডিজাইন */
 .profile-card {
     background: var(--card);
-    padding: 25px;
+    padding: 30px;
     border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.1);
-    width: 100%;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-} /* এই ব্র্যাকেটটি তোমার কোডে ছিল না, তাই ছবি দেখা যাচ্ছিল না */
+    width: 100%; /* কন্টেইনারের পুরোটা নিবে */
+    box-sizing: border-box;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
 
 .skills-section {
-    width: 100%;
     text-align: left;
-    margin: 20px 0;
+    width: 100%;
 }
-.skill-item { margin-bottom: 15px; }
 
 .progress-bar {
     width: 100%;
-    height: 10px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 5px;
-    margin-top: 8px;
-    overflow: hidden;
+    height: 8px;
+    background: #000814;
+    border-radius: 10px;
+    margin: 8px 0 18px;
 }
 
 .progress {
     height: 100%;
     background: var(--accent);
-    border-radius: 5px;
+    border-radius: 10px;
     box-shadow: 0 0 10px var(--accent);
-    transition: 1s ease-in-out;
 }
 
-/* ৪. লগইন বক্স - প্রিমিয়াম ভাইব */
-/* ৪. লগইন বক্স - প্রফেশনাল ও ফিক্সড করা হলো */
-.modal {
-    display: none; /* এটি শুরুতেই লগইন বক্সকে লুকিয়ে রাখবে */
-    position: fixed;
-    top: 0; 
-    left: 0; 
-    width: 100%; 
-    height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(8px);
-    justify-content: center;
-    align-items: flex-start; 
-    padding-top: 50px; 
-    z-index: 9999;
+/* ডেস্কটপ ও বড় স্ক্রিনের জন্য ফন্ট সাইজ একটু বাড়ানো */
+@media (min-width: 1024px) {
+    h1.glitch { font-size: 3rem; }
+    .container { margin-top: 100px; }
 }
+
+/* পপআপ (Login Modal) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
 .modal-content {
     background: var(--card);
-    padding: 40px 30px;
+    padding: 40px;
     border-radius: 20px;
-    border: 1px solid var(--accent);
-    width: 85%;
-    max-width: 380px;
+    border: 2px solid var(--accent);
+    width: 320px;
     text-align: center;
-    position: relative;
-    box-shadow: 0 0 40px rgba(0, 242, 255, 0.25);
-    animation: fadeIn 0.4s ease-out; /* হালকা অ্যানিমেশন */
-}
-
-@keyframes fadeIn {
-    from { transform: scale(0.9); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
-}
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--accent);
-    transition: 0.3s;
-}
-
-.close-btn:hover {
-    transform: rotate(90deg);
-}
-
-.login-input {
-    width: 100%;
-    padding: 12px 15px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid rgba(0, 242, 255, 0.3);
-    background: rgba(0, 0, 0, 0.4);
-    color: #fff;
-    font-size: 1rem;
-    outline: none;
-}
-
-.login-input:focus {
-    border-color: var(--accent);
-}
-
-.modal-login-btn {
-    width: 100%;
-    padding: 12px;
-    background: var(--accent);
-    border: none;
-    font-weight: bold;
-    border-radius: 8px;
-    color: #000;
-    cursor: pointer;
-    margin-top: 15px;
-    font-family: 'Poppins', sans-serif;
-    text-transform: uppercase;
-    transition: 0.3s;
-}
-
-.modal-login-btn:hover {
-    box-shadow: 0 0 15px var(--accent);
-}
-
-.error-text {
-    display: none; /* visibility-র বদলে display ইউজ করা ভালো */
-    color: #ff4d4d;
-    font-size: 0.85rem;
-    margin-bottom: 10px;
-}
-
-/* বাটন সোশ্যাল */
-.btn {
-    display: block;
-    padding: 12px;
-    margin: 10px 0;
-    color: var(--accent);
-    border: 1px solid var(--accent);
-    text-decoration: none;
-    border-radius: 10px;
-    transition: 0.3s;
-}
-
-.btn:hover {
-    background: var(--accent);
-    color: #000;
 }
