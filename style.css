@@ -1,12 +1,14 @@
+/* ১. গ্লোবাল সেটিংস */
 :root {
     --bg: #000814;
     --card: #001d3d;
     --text: #e0e0e0;
     --accent: #00f2ff;
+    --error: #ff4d4d;
 }
 
 * {
-    box-sizing: border-box; /* এটি সব এলিমেন্টকে স্ক্রিনের ভেতরে রাখবে */
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
@@ -17,15 +19,15 @@ body {
     font-family: 'Poppins', sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* সব কিছু মাঝখানে রাখবে */
     width: 100%;
-    overflow-x: hidden; /* ডানে-বামে যেন স্ক্রল না হয় */
+    overflow-x: hidden;
 }
 
-/* নেভিগেশন বার ফিক্স */
+/* ২. নেভিগেশন বার */
 .top-nav {
     width: 100%;
-    padding: 10px 15px;
+    padding: 15px 25px;
     background: var(--card);
     display: flex;
     justify-content: space-between;
@@ -33,42 +35,36 @@ body {
     border-bottom: 2px solid var(--accent);
     position: absolute;
     top: 0;
-    left: 0;
-    right: 0;
     z-index: 1000;
 }
 
 .logo {
     font-family: 'Orbitron', sans-serif;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     color: var(--accent);
     text-shadow: 0 0 10px var(--accent);
+    font-weight: bold;
 }
 
-.nav-right {
-    display: flex;
-    gap: 8px;
-}
-
-/* কন্টেইনার - যা সবকিছু সেন্টারে রাখবে */
+/* ৩. কন্টেইনার (সেন্টারিং ফিক্স) */
 .container {
     width: 100%;
     max-width: 600px;
-    margin-top: 70px; /* লোগো বারের ঠিক নিচ থেকে শুরু হবে */
-    padding: 15px;
+    margin-top: 100px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; /* এটি ছবি ও লেখাকে মাঝখানে আনবে */
 }
 
 .profile-pic {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
     border: 3px solid var(--accent);
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 .profile-pic img {
@@ -77,65 +73,99 @@ body {
     object-fit: cover;
 }
 
-/* প্রোফাইল কার্ড */
+h1.glitch {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* ৪. প্রোফাইল কার্ড ও সোশ্যাল লিঙ্ক */
 .profile-card {
     background: var(--card);
-    padding: 25px;
+    padding: 30px;
     border-radius: 20px;
-    width: 100%; /* ফোনের স্ক্রিন অনুযায়ী পুরোটা নিবে */
+    width: 100%;
     border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
 }
 
-.skills-section {
-    width: 100%;
-    text-align: left;
-}
-
-.progress-bar {
-    width: 100%;
-    height: 8px;
-    background: #000814;
-    border-radius: 10px;
-    margin: 8px 0 18px;
-}
-
-.progress {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 10px;
-}
-
-/* বাটন স্টাইল */
-.login-btn {
-    background: transparent;
-    border: 1px solid var(--accent);
-    color: var(--accent);
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 0.8rem;
-    cursor: pointer;
+.social-links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
 .btn {
-    display: block;
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
+    padding: 10px 20px;
     color: var(--accent);
     border: 1px solid var(--accent);
     text-decoration: none;
-    border-radius: 10px;
+    border-radius: 8px;
+    font-size: 0.9rem;
     transition: 0.3s;
 }
 
-/* মাউস ইফেক্ট মোবাইল থেকে বন্ধ রাখতে পারো চাইলে */
-.cursor-trail {
-    display: none; /* মোবাইলে ডটটা অনেক সময় ডিস্টার্ব করে */
+.btn:hover {
+    background: var(--accent);
+    color: #000;
 }
 
-@media (min-width: 768px) {
-    .cursor-trail { display: block; } /* শুধু কম্পিউটারেই ডটটা দেখাবে */
-    .container { margin-top: 100px; }
-    .logo { font-size: 1.5rem; }
+/* ৫. লগইন বক্স (Professional Look) */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-content {
+    background: var(--card);
+    padding: 30px;
+    border-radius: 15px;
+    border: 2px solid var(--accent);
+    width: 90%;
+    max-width: 350px;
+    text-align: center;
+    position: relative;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.login-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 8px;
+    border: 1px solid #333;
+    background: #000814;
+    color: #fff;
+    outline: none;
+}
+
+.modal-login-btn {
+    width: 100%;
+    padding: 12px;
+    background: var(--accent);
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.error-text {
+    color: var(--error);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+    display: none; /* শুরুতে লুকিয়ে থাকবে */
 }
