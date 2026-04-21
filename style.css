@@ -179,7 +179,7 @@ body {
 /* ৪. লগইন বক্স - প্রিমিয়াম ভাইব */
 /* ৪. লগইন বক্স - প্রফেশনাল ও ফিক্সড করা হলো */
 .modal {
-    display: none; 
+    display: none; /* এটি শুরুতেই লগইন বক্সকে লুকিয়ে রাখবে */
     position: fixed;
     top: 0; 
     left: 0; 
@@ -187,13 +187,11 @@ body {
     height: 100%;
     background: rgba(0, 0, 0, 0.85);
     backdrop-filter: blur(8px);
-    display: flex; 
     justify-content: center;
-    align-items: flex-start; /* এটি বক্সটিকে উপরে রাখবে */
-    padding-top: 50px; /* উপর থেকে একটু ফাঁকা রাখবে */
+    align-items: flex-start; 
+    padding-top: 50px; 
     z-index: 9999;
 }
-
 .modal-content {
     background: var(--card);
     padding: 40px 30px;
