@@ -5,133 +5,58 @@
     --accent: #00f2ff;
 }
 
+.light-theme {
+    --bg: #f0f2f5;
+    --card: #ffffff;
+    --text: #1c1e21;
+    --accent: #007bff;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg);
-    color: var(--text);
-    font-family: 'Poppins', sans-serif;
-    /* ডেক্সটপে সবকিছু মাঝখানে রাখার জন্য নিচের ৩টি লাইন জরুরি */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
+    margin: 0; background-color: var(--bg); color: var(--text);
+    font-family: 'Poppins', sans-serif; transition: 0.4s;
     overflow-x: hidden;
 }
 
-/* ওপরে স্থির বার (স্ক্রল করলে ওপরেই থাকবে) */
 .top-nav {
-    width: 100%;
-    padding: 12px 20px;
-    background: var(--card);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid var(--accent);
-    position: absolute; 
-    top: 0;
-    left: 0;
-    box-sizing: border-box;
-    z-index: 1000;
+    width: 100%; padding: 15px 25px; background: var(--card);
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 2px solid var(--accent); position: absolute; top: 0; box-sizing: border-box;
 }
 
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 1.3rem;
-    color: var(--accent);
-    text-shadow: 0 0 10px var(--accent);
-    margin: 0;
+/* কাস্টম কার্সর ইফেক্ট */
+.cursor-trail {
+    width: 20px; height: 20px; background: var(--accent);
+    border-radius: 50%; position: absolute; pointer-events: none;
+    box-shadow: 0 0 15px var(--accent); transition: 0.1s; z-index: 9999;
+    opacity: 0.6;
 }
 
-/* কন্টেইনার - এটিই কম্পিউটার ও মোবাইলে সেন্টারিং ঠিক রাখে */
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    width: 90%;
-    max-width: 650px; /* ডেস্কটপে খুব বেশি ছড়াবে না */
-    margin-top: 80px; /* লোগো বারের নিচে সামান্য গ্যাপ */
-    margin-bottom: 50px;
-    padding: 20px;
-    box-sizing: border-box;
-}
+.container { text-align: center; margin-top: 100px; padding: 20px; }
 
 .profile-pic {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    border: 3px solid var(--accent);
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
-    margin-bottom: 15px;
+    width: 130px; height: 130px; margin: 0 auto 15px;
+    border-radius: 50%; border: 3px solid var(--accent); overflow: hidden;
 }
 
-.profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-h1.glitch {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 2.2rem;
-    margin: 10px 0;
-}
-
-/* প্রোফাইল কার্ড ডিজাইন */
-.profile-card {
-    background: var(--card);
-    padding: 30px;
-    border-radius: 20px;
-    width: 100%; /* কন্টেইনারের পুরোটা নিবে */
-    box-sizing: border-box;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-}
-
-.skills-section {
-    text-align: left;
-    width: 100%;
-}
-
+/* স্কিল বার স্টাইল */
+.skills-section { text-align: left; margin: 20px 0; }
+.skill-item { margin-bottom: 15px; }
 .progress-bar {
-    width: 100%;
-    height: 8px;
-    background: #000814;
-    border-radius: 10px;
-    margin: 8px 0 18px;
+    width: 100%; height: 8px; background: #333; border-radius: 5px; margin-top: 5px;
 }
-
 .progress {
-    height: 100%;
-    background: var(--accent);
-    border-radius: 10px;
+    height: 100%; background: var(--accent); border-radius: 5px;
     box-shadow: 0 0 10px var(--accent);
 }
 
-/* ডেস্কটপ ও বড় স্ক্রিনের জন্য ফন্ট সাইজ একটু বাড়ানো */
-@media (min-width: 1024px) {
-    h1.glitch { font-size: 3rem; }
-    .container { margin-top: 100px; }
-}
+.profile-card { background: var(--card); padding: 25px; border-radius: 20px; border: 1px solid #333; }
+.btn { display: block; padding: 10px; margin: 10px 0; color: var(--accent); border: 1px solid var(--accent); text-decoration: none; border-radius: 8px; }
 
-/* পপআপ (Login Modal) */
-.modal {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
-    justify-content: center;
-    align-items: center;
-    z-index: 2000;
-}
-
-.modal-content {
-    background: var(--card);
-    padding: 40px;
-    border-radius: 20px;
-    border: 2px solid var(--accent);
-    width: 320px;
-    text-align: center;
-}
+/* Modal Styles... (আগের মতোই থাকবে) */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-content: center; align-items: center; z-index: 2000; }
+.modal-content { background: var(--card); padding: 30px; border-radius: 15px; border: 2px solid var(--accent); width: 300px; text-align: center; position: relative; }
+.close-btn { position: absolute; top: 5px; right: 15px; font-size: 2rem; cursor: pointer; }
+.login-input { width: 100%; padding: 10px; margin: 10px 0; border-radius: 5px; border: 1px solid #333; background: var(--bg); color: var(--text); box-sizing: border-box; }
+.modal-login-btn { width: 100%; padding: 10px; background: var(--accent); border: none; font-weight: bold; border-radius: 5px; }
+.error-text { visibility: hidden; color: #ff0055; font-size: 0.8rem; }
