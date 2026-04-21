@@ -44,7 +44,15 @@ body {
     top: 0;
     z-index: 1000;
 }
-
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+    letter-spacing: 2px;
+    cursor: pointer;
+}
 .nav-right {
     display: flex;
     gap: 10px;
@@ -68,31 +76,15 @@ body {
 }
 
 /* ২. স্কিল বার ও পিকচার সেন্টারিং ফিক্স */
-.container {
+..container {
     width: 90%;
     max-width: 500px;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 140px; /* বক্সটাকে আরও নিচে নামানোর জন্য ১০০ থেকে বাড়িয়ে ১৪০ করা হলো */
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.profile-pic {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 15px;
-    border-radius: 50%;
-    border: 3px solid var(--accent);
-    overflow: hidden;
-    box-shadow: 0 0 15px var(--accent);
-}
-
-.profile-pic img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
 }
 
 .profile-card {
@@ -102,6 +94,7 @@ body {
     border: 1px solid rgba(255,255,255,0.1);
     width: 100%;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    margin-top: 30px; /* লোগো এবং নামের অংশ থেকে বক্সটাকে আরও একটু দূরে ঠেলার জন্য */
 }
 
 .skills-section {
