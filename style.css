@@ -7,26 +7,34 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .container {
     text-align: center;
+    width: 90%;
     max-width: 600px;
     padding: 20px;
 }
 
 h1.glitch {
     font-family: 'Orbitron', sans-serif;
-    font-size: 3rem;
+    font-size: 2.5rem; /* নাম বড় না হওয়ার জন্য সাইজ কমানো হয়েছে */
     color: #00f2ff;
     text-shadow: 2px 2px #ff0055;
     text-transform: uppercase;
 }
 
+/* মোবাইলের জন্য স্পেশাল সাইজ */
+@media (max-width: 480px) {
+    h1.glitch {
+        font-size: 1.8rem; /* ছোট ফোনে নাম একদম পারফেক্ট দেখাবে */
+    }
+}
+
 .profile-card {
     background: #1a1a1e;
-    padding: 30px;
+    padding: 20px;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 242, 255, 0.2);
     border: 1px solid #333;
@@ -40,23 +48,27 @@ h1.glitch {
 
 .stat-box {
     background: #25252b;
-    padding: 10px 20px;
+    padding: 10px;
     border-radius: 10px;
     border-bottom: 3px solid #00f2ff;
+    flex: 1;
+    margin: 5px;
 }
 
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 8px 15px;
     margin: 5px;
     color: #00f2ff;
     text-decoration: none;
     border: 1px solid #00f2ff;
     transition: 0.3s;
+    font-size: 0.9rem;
 }
 
 .btn:hover {
     background: #00f2ff;
     color: #000;
     box-shadow: 0 0 15px #00f2ff;
+}
 }
